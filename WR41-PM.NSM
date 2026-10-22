@@ -1,0 +1,112 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #CV-FIRST-NAME #CV-GENDER #CV-LANG(*) #CV-MARITAL-STATUS #CV-MIDDLE-NAME
+0004*     #CV-NAME #GENDER-DESCR #MAR-DESCR EMPLOYEES.FIRST-NAME EMPLOYEES.GENDER
+0005*     EMPLOYEES.LANG(*) EMPLOYEES.MAR-STAT EMPLOYEES.MIDDLE-I EMPLOYEES.NAME
+0006*     EMPLOYEES.PERSONNEL-ID
+0007DEFINE DATA PARAMETER
+00081  #CV-FIRST-NAME (C)
+00091  #CV-GENDER (C)
+00101  #CV-LANG (C/00001:00005)
+00111  #CV-MARITAL-STATUS (C)
+00121  #CV-MIDDLE-NAME (C)
+00131  #CV-NAME (C)
+00141 #GENDER-DESCR (A010)
+00151 #MAR-DESCR (A010)
+00161 EMPLOYEES.FIRST-NAME (A020)
+00171 EMPLOYEES.GENDER (A001)
+00181 EMPLOYEES.LANG (A003/00001:00005)
+00191 EMPLOYEES.MAR-STAT (A001)
+00201 EMPLOYEES.MIDDLE-I (A020)
+00211 EMPLOYEES.NAME (A020)
+00221 EMPLOYEES.PERSONNEL-ID (A008)
+0023END-DEFINE
+0024FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0025* MAP2: MAP PROFILES *****************************        200***********
+0026* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0027* 024079        N0NNUCN             X ^      01 SYSPROF NR             *
+0028************************************************************************
+0029INPUT          (     IP=OFF                                           /*
+0030                                                                       )
+0031 001T *PROGRAM /*.01S010 A008 .
+0032      (AD=ODT )
+0033 017T 'HR Information System         '(PII)
+0034 052T *DATE /*.01S013 A008 .
+0035      (AD=ODT )
+0036/
+0037 017T 'Employee personal details     '(PII)
+0038 052T *TIME /*.01S013 A010 .
+0039      (AD=ODT )
+0040/
+0041/
+0042/
+0043 002T 'Person ID:    '
+0044 022T EMPLOYEES.PERSONNEL-ID /*.01D008 A008 .
+0045      (AD=ODLT )
+0046/
+0047 002T 'Surname: '
+0048 022T EMPLOYEES.NAME /*.99D020 A020 .
+0049      (AD=MDLT CV=#CV-NAME HE='WR41HELP' )
+0050/
+0051/
+0052 002T 'First name:'
+0053 022T EMPLOYEES.FIRST-NAME /*.99D020 A020 .
+0054      (AD=MDLT CV=#CV-FIRST-NAME )
+0055/
+0056 002T 'Middle name: '
+0057 022T EMPLOYEES.MIDDLE-I /*.99D020 A020 .
+0058      (AD=MDLT CV=#CV-MIDDLE-NAME )
+0059/
+0060/
+0061 002T 'Gender:       '
+0062 022T EMPLOYEES.GENDER /*.99D001 A001 .
+0063      (AD=MDLT CV=#CV-GENDER HE='WR41GEN',#GENDER-DESCR )
+0064 026T #GENDER-DESCR /*.01D010 A010 .
+0065      (AD=ODLT )
+0066/
+0067 002T 'Marital status:'
+0068 022T EMPLOYEES.MAR-STAT /*.99D001 A001 .
+0069      (AD=MDLT CV=#CV-MARITAL-STATUS HE='WR41HELP',#MAR-DESCR )
+0070 026T #MAR-DESCR /*.01D010 A010 .
+0071      (AD=ODLT )
+0072/
+0073/
+0074 002T 'Language:     '
+0075 022T EMPLOYEES.LANG (1) /*.99D003 A003 .
+0076      (AD=MDLT CV=#CV-LANG(1) )
+0077   /**A1000050000100001000010000100001010001005001000001000HV
+0078 026T EMPLOYEES.LANG (2) /*.99D003 A003 .
+0079      (AD=MDLT CV=#CV-LANG(2) )
+0080 030T EMPLOYEES.LANG (3) /*.99D003 A003 .
+0081      (AD=MDLT CV=#CV-LANG(3) )
+0082 034T EMPLOYEES.LANG (4) /*.99D003 A003 .
+0083      (AD=MDLT CV=#CV-LANG(4) )
+0084 038T EMPLOYEES.LANG (5) /*.99D003 A003 .
+0085      (AD=MDLT CV=#CV-LANG(5) )
+0086/
+0087/
+0088/
+0089/
+0090/
+0091/
+0092/
+0093/
+0094/
+0095/
+0096* MAP2: VALIDATION *****************************************************
+0097RULEVAR D01EMPLOYEES.PERSONNEL-ID                                           
+0098* CDIR EMPLOYEES                        PERSONNEL-ID                    ;
+0099RULEVAR D01EMPLOYEES.NAME                                                   
+0100INCDIR EMPLOYEES                        NAME                            ;
+0101RULEVAR D01EMPLOYEES.FIRST-NAME                                             
+0102INCDIR EMPLOYEES                        FIRST-NAME                      ;
+0103RULEVAR D01EMPLOYEES.MIDDLE-I                                               
+0104INCDIR EMPLOYEES                        MIDDLE-I                        ;
+0105RULEVAR D01EMPLOYEES.GENDER                                                 
+0106INCDIR EMPLOYEES                        GENDER                          ;
+0107RULEVAR D01EMPLOYEES.MAR-STAT                                               
+0108INCDIR EMPLOYEES                        MAR-STAT                        ;
+0109RULEVAR D01EMPLOYEES.LANG                                                   
+0110INCDIR EMPLOYEES                        LANG                            ;
+0111* MAP2: END OF MAP *****************************************************
+0112END

@@ -1,0 +1,57 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     FIRST-NAME NAME PERSONNEL-ID
+0004DEFINE DATA PARAMETER
+00051 FIRST-NAME (A020)
+00061 NAME (A020)
+00071 PERSONNEL-ID (A008)
+0008END-DEFINE
+0009FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0010* MAP2: MAP PROFILES *****************************        200***********
+0011* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0012* 024079        N0NNUCN             X ^      01 SYSPROF NR             *
+0013************************************************************************
+0014INPUT          (     IP=OFF                                           /*
+0015                                                                       )
+0016 002T *PROGRAM /*.01S010 A008 .
+0017      (AD=ODT )
+0018 049T *TIME /*.01S008 A010 .
+0019      (AD=ODT )
+0020/
+0021 049T *DATE /*.01S010 A008 .
+0022      (AD=ODT )
+0023/
+0024/
+0025 017T 'NEW EMPLOYEE   '
+0026/
+0027/
+0028/
+0029 002T 'NAME:     '
+0030 021T FIRST-NAME /*.01U020 A020 .
+0031      (AD=ODT )
+0032/
+0033 002T 'SURNAME: '
+0034 021T NAME /*.01U020 A020 .
+0035      (AD=ODT )
+0036/
+0037 002T 'PERSONNEL-ID:  '
+0038 021T PERSONNEL-ID /*.01U008 A008 .
+0039      (AD=ODT )
+0040/
+0041/
+0042/
+0043/
+0044/
+0045/
+0046/
+0047/
+0048/
+0049/
+0050/
+0051/
+0052/
+0053/
+0054/
+0055* MAP2: VALIDATION *****************************************************
+0056* MAP2: END OF MAP *****************************************************
+0057END

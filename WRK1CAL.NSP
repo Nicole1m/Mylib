@@ -1,0 +1,47 @@
+0001/** New Program WRK1CAL.
+0002/**
+0003/** :author msh
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL
+0006
+00071 #VALUE-1 (N4.4)
+00081 #VALUE-2 (N4.4)
+00091 #OPERATOR (A1)
+00101 #RESULT (N5)
+0011
+0012END-DEFINE
+0013*
+0014*
+0015R1. REPEAT 
+0016  INPUT
+0017
+0018    'Please enter the information for the calculation:' //
+0019    'Value1:'    #VALUE-1 (AD=M)//
+0020    'Value2:'    #VALUE-2  (AD=M)// 
+0021    'Operator:'  #OPERATOR '(+,-,/,*) or press # to escape'//
+0022    'Results:'   #RESULT (AD=O)
+0023    
+0024  IF #OPERATOR  = '#'
+0025    ESCAPE BOTTOM 
+0026  END-IF
+0027
+0028  IF NOT
+0029      #OPERATOR = '+' OR = '-' OR = '*' OR ='/'
+0030    REINPUT 'Invalid operator'
+0031      MARK *#OPERATOR
+0032 END-IF
+0033 
+0034 IF #VALUE-2 = 0
+0035      REINPUT 'Error: Division by zero is not allowed'
+0036      MARK #VALUE-2
+0037   END-IF
+0038 
+0039  
+0040 CALLNAT "SUB1CAL" 
+0041 #VALUE-1 
+0042 #VALUE-2 
+0043 #OPERATOR 
+0044 #RESULT
+0045
+0046END-REPEAT
+0047END

@@ -1,0 +1,91 @@
+0001/** New Program WRK46-1.
+0002/**
+0003/** :author msh
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL
+00061 #IN-COUNTRY (A30/1:100) INIT (V)
+0007  < 'Nigeria'    ,
+0008  'Ethiopia'     ,
+0009  'Egypt'        ,
+0010  'DR Congo'     ,
+0011  'Tanzania'     ,
+0012  'South Africa' ,
+0013  'Kenya'        ,
+0014  'Sudan'        ,
+0015  'Uganda'       ,
+0016  'Algeria'      ,
+0017  'Angola'       ,
+0018  'Morocco'      ,
+0019  'Mozambique'   ,
+0020  'Ghana'        ,
+0021  'Madagascar'   ,
+0022  'Côte d''Ivoire' ,
+0023  'Cameroon'     ,
+0024  'Niger'      ,
+0025  'Mali'       ,
+0026  'Burkina Faso' ,
+0027  'Malawi'   ,
+0028  'Zambia'   ,
+0029  'Chad'     ,
+0030  'Somalia'  ,
+0031  'Senegal'  ,
+0032  'Zimbabwe'  ,
+0033  'Guinea'    ,
+0034  'Benin'     ,
+0035  'Rwanda'    ,
+0036  'Burundi'   ,
+0037  'Tunisia'   ,
+0038  'South Sudan' ,
+0039  'Togo'     ,
+0040  'Sierra Leone'  ,
+0041  'Libya'         ,
+0042  'Congo'         ,
+0043  'Liberia'       ,
+0044  'Central African Republic' ,
+0045  'Mauritania' ,
+0046  'Eritrea' ,
+0047  'Namibia' ,
+0048  'Gambia'  ,
+0049  'Gabon'  ,
+0050  'Botswana'  ,
+0051  'Lesotho'   ,
+0052  'Guinea-Bissau'  ,
+0053  'Equatorial Guinea' ,
+0054  'Mauritius'   ,
+0055  'Eswatini'    ,
+0056  'Djibouti'    ,
+0057  'Comoros'     ,
+0058  'Cabo Verde'  ,
+0059  'Sao Tome & Principe' ,
+0060  'Seychelles' >
+0061
+00621 #OUT-COUNTRY (A30/1:100)
+00631 #INNER (N5)
+00641 #OUTER (N5)
+00651 #SAVE-COUNTRY (A30)
+0066END-DEFINE 
+0067*
+0068DEFINE WORK FILE 1 'C:\Training\Countries in Africa.txt'
+0069
+0070MOVE #IN-COUNTRY(*) TO #OUT-COUNTRY(*)
+0071
+0072FOR #OUTER = 54 TO 1 STEP -1
+0073  FOR #INNER = 1 TO 53
+0074    IF #IN-COUNTRY (#INNER) GT #IN-COUNTRY (#INNER + 1)
+0075      MOVE #IN-COUNTRY (#INNER) TO #SAVE-COUNTRY
+0076      MOVE #IN-COUNTRY(#INNER + 1) TO #IN-COUNTRY (#INNER)
+0077      MOVE #SAVE-COUNTRY TO #IN-COUNTRY (#INNER + 1)
+0078    END-IF
+0079  END-FOR
+0080END-FOR
+0081
+0082*
+0083WRITE WORK FILE 1 VARIABLE 'Original'        'Sorted'                
+0084FOR #INNER = 1 TO 54
+0085  WRITE WORK FILE 1 VARIABLE
+0086    #OUT-COUNTRY(#INNER)
+0087    #IN-COUNTRY(#INNER)
+0088END-FOR
+0089
+0090CLOSE WORK FILE 1  
+0091END

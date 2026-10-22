@@ -1,0 +1,79 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     EMPLOYEES.CITY EMPLOYEES.COUNTRY EMPLOYEES.LANG(*) EMPLOYEES.NAME
+0004*     EMPLOYEES.PERSONNEL-ID
+0005DEFINE DATA PARAMETER
+00061 EMPLOYEES.CITY (A020)
+00071 EMPLOYEES.COUNTRY (A003)
+00081 EMPLOYEES.LANG (A003/00001:00005)
+00091 EMPLOYEES.NAME (A020)
+00101 EMPLOYEES.PERSONNEL-ID (A008)
+0011END-DEFINE
+0012FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0013* MAP2: MAP PROFILES *****************************        200***********
+0014* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0015* 024079        N0NNUCN             X ^      01 SYSPROF NR             *
+0016************************************************************************
+0017INPUT          (     IP=OFF                                           /*
+0018                                                                       )
+0019/
+0020 014T 'Employee Personal Details   '
+0021/
+0022/
+0023/
+0024/
+0025/
+0026 002T 'PERSON ID :'
+0027 017T EMPLOYEES.PERSONNEL-ID /*.01D008 A008 .
+0028      (AD=ODRT )
+0029/
+0030/
+0031 002T 'NAME:       '
+0032 017T EMPLOYEES.NAME /*.01D020 A020 .
+0033      (AD=ODLT )
+0034/
+0035/
+0036 002T 'CITY:      '
+0037 017T EMPLOYEES.CITY /*.01D020 A020 .
+0038      (AD=ODLT )
+0039/
+0040/
+0041 002T 'COUNTRY:  '
+0042 017T EMPLOYEES.COUNTRY /*.01D003 A003 .
+0043      (AD=ODLT )
+0044/
+0045/
+0046 002T 'LANGUAGES: '
+0047 017T EMPLOYEES.LANG (1) /*.01D003 A003 .
+0048      (AD=ODRT )
+0049   /**A1000050000100001000010000100001010001005001000001000HV
+0050 021T EMPLOYEES.LANG (2) /*.01D003 A003 .
+0051      (AD=ODRT )
+0052 025T EMPLOYEES.LANG (3) /*.01D003 A003 .
+0053      (AD=ODRT )
+0054 029T EMPLOYEES.LANG (4) /*.01D003 A003 .
+0055      (AD=ODRT )
+0056 033T EMPLOYEES.LANG (5) /*.01D003 A003 .
+0057      (AD=ODRT )
+0058/
+0059/
+0060/
+0061/
+0062/
+0063/
+0064/
+0065/
+0066/
+0067* MAP2: VALIDATION *****************************************************
+0068RULEVAR D01EMPLOYEES.PERSONNEL-ID                                           
+0069* CDIR EMPLOYEES                        PERSONNEL-ID                    ;
+0070RULEVAR D01EMPLOYEES.NAME                                                   
+0071* CDIR EMPLOYEES                        NAME                            ;
+0072RULEVAR D01EMPLOYEES.CITY                                                   
+0073* CDIR EMPLOYEES                        CITY                            ;
+0074RULEVAR D01EMPLOYEES.COUNTRY                                                
+0075* CDIR EMPLOYEES                        COUNTRY                         ;
+0076RULEVAR D01EMPLOYEES.LANG                                                   
+0077* CDIR EMPLOYEES                        LANG                            ;
+0078* MAP2: END OF MAP *****************************************************
+0079END

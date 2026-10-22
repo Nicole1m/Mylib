@@ -1,0 +1,111 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #CHASSIS-NUM #COLOUR #COUNT #CV-CHASSIS-NUM #CV-COLOUR #CV-DATE-ACQ
+0004*     #CV-MAKE #CV-MODEL #CV-REG-NUM #CV-YEAR #DATE-ACQ #MAKE #MODEL #PERSON-ID #REG-NUM
+0005*     #SURNAME #YEAR
+0006DEFINE DATA PARAMETER
+00071 #CHASSIS-NUM (B004)
+00081 #COLOUR (A010)
+00091 #COUNT (N05.0)
+00101  #CV-CHASSIS-NUM (C)
+00111  #CV-COLOUR (C)
+00121  #CV-DATE-ACQ (C)
+00131  #CV-MAKE (C)
+00141  #CV-MODEL (C)
+00151  #CV-REG-NUM (C)
+00161  #CV-YEAR (C)
+00171 #DATE-ACQ (N08.0)
+00181 #MAKE (A020)
+00191 #MODEL (A020)
+00201 #PERSON-ID (A008)
+00211 #REG-NUM (A015)
+00221 #SURNAME (A020)
+00231 #YEAR (N04.0)
+0024END-DEFINE
+0025FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0026* MAP2: MAP PROFILES *****************************        200***********
+0027* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0028* 024079        N0NNUCN             X ^      01 SYSPROF NR             *
+0029************************************************************************
+0030INPUT          (     IP=OFF                                           /*
+0031                                                                       )
+0032 004T *TIME /*.01S009 A010 .
+0033      (AD=ODT )
+0034 047T *PROGRAM /*.01S015 A008 .
+0035      (AD=ODT )
+0036/
+0037 014T 'VEHICLES DETAILS           '(PII)
+0038 047T *DATN /*.01S008 N08.0.
+0039      (AD=ODT )
+0040/
+0041 046T ' '
+0042/
+0043/
+0044 002T 'Person ID:      '
+0045 031T #PERSON-ID /*.01U008 A008 .
+0046      (AD=ODLT )
+0047/
+0048 002T 'Surname:        '
+0049 031T #SURNAME /*.01U020 A020 .
+0050      (AD=ODLT )
+0051/
+0052/
+0053 002T 'Registation number : '
+0054 031T #REG-NUM /*.99U015 A015 .
+0055      (AD=MDLT CV=#CV-REG-NUM )
+0056/
+0057 002T 'Make:              '
+0058 031T #MAKE /*.99U020 A020 .
+0059      (AD=MDLT CV=#CV-MAKE )
+0060/
+0061 002T 'Model:            '
+0062 031T #MODEL /*.99U020 A020 .
+0063      (AD=MDLT CV=#CV-MODEL )
+0064/
+0065 002T 'Colour:      '
+0066 031T #COLOUR /*.99U010 A010 .
+0067      (AD=MDLT CV=#CV-COLOUR )
+0068/
+0069 002T 'Year:         '
+0070 031T #YEAR /*.99U004 N04.0.
+0071      (AD=MDLT CV=#CV-YEAR )
+0072/
+0073 002T 'Chasis number :  '
+0074 031T #CHASSIS-NUM /*.99U008 B004 .
+0075      (AD=MDLT CV=#CV-CHASSIS-NUM )
+0076/
+0077 002T 'Date acquired:   '
+0078 031T #DATE-ACQ /*.99U008 N08.0.
+0079      (AD=MDLT CV=#CV-DATE-ACQ )
+0080/
+0081/
+0082/
+0083 002T 'CAR COUNT :   '
+0084 031T #COUNT /*.01U005 N05.0.
+0085      (AD=ODT )
+0086/
+0087/
+0088/
+0089/
+0090/
+0091/
+0092/
+0093* MAP2: VALIDATION *****************************************************
+0094RULEVAR D01#PERSON-ID                                                       
+0095* CDIR #PERSON-ID                       #PERSON-ID                      ;
+0096RULEVAR D01#REG-NUM                                                         
+0097INCDIR #REG-NUM                         #REG-NUM                        ;
+0098RULEVAR D01#MAKE                                                            
+0099INCDIR #MAKE                            #MAKE                           ;
+0100RULEVAR D01#MODEL                                                           
+0101INCDIR #MODEL                           #MODEL                          ;
+0102RULEVAR D01#COLOUR                                                          
+0103INCDIR #COLOUR                          #COLOUR                         ;
+0104RULEVAR D01#YEAR                                                            
+0105INCDIR #YEAR                            #YEAR                           ;
+0106RULEVAR D01#CHASSIS-NUM                                                     
+0107INCDIR #CHASSIS-NUM                     #CHASSIS-NUM                    ;
+0108RULEVAR D01#DATE-ACQ                                                        
+0109INCDIR #DATE-ACQ                        #DATE-ACQ                       ;
+0110* MAP2: END OF MAP *****************************************************
+0111END
