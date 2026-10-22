@@ -1,0 +1,93 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     ADDRESS-LINE(*) CITY COUNTRY FIRST-NAME MAR-STAT NAME PERSONNEL-ID
+0004*     POST-CODE
+0005DEFINE DATA PARAMETER
+00061 ADDRESS-LINE (A020/00001:00002)
+00071 CITY (A020)
+00081 COUNTRY (A003)
+00091 FIRST-NAME (A020)
+00101 MAR-STAT (A001)
+00111 NAME (A020)
+00121 PERSONNEL-ID (A008)
+00131 POST-CODE (A010)
+0014END-DEFINE
+0015FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0016* MAP2: MAP PROFILES *****************************        200***********
+0017* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0018* 024079        N0NNUCN             X ^      01 SYSPROF NR             *
+0019************************************************************************
+0020INPUT          (     IP=OFF                                           /*
+0021                                                                       )
+0022/
+0023 001T *PROGRAM /*.01S009 A008 .
+0024      (AD=ODT )
+0025 012T 'Employees Details   '
+0026/
+0027/
+0028/
+0029/
+0030 003T 'Personnel-id:'
+0031 021T PERSONNEL-ID /*.99U008 A008 .
+0032      (AD=MDRT )
+0033/
+0034 003T 'Name:        '
+0035 021T FIRST-NAME /*.99U020 A020 .
+0036      (AD=MDRT )
+0037/
+0038 003T 'Surname:    '
+0039 021T NAME /*.99U020 A020 .
+0040      (AD=MDRT )
+0041/
+0042 003T 'Address:     '
+0043 021T ADDRESS-LINE (1) /*.99U020 A020 .
+0044      (AD=MDRT )
+0045   /**A1000020000100001000010000100001100002001001000001000HV
+0046/
+0047 021T ADDRESS-LINE (2) /*.99U020 A020 .
+0048      (AD=MDRT )
+0049/
+0050 003T 'City:     '
+0051 021T CITY /*.99U020 A020 .
+0052      (AD=MDRT )
+0053/
+0054 003T 'Postal-code'
+0055 021T POST-CODE /*.99U010 A010 .
+0056      (AD=MDRT )
+0057/
+0058 003T 'Country:   '
+0059 021T COUNTRY /*.99U003 A003 .
+0060      (AD=MDRT )
+0061/
+0062 003T 'Marital Status '
+0063 021T MAR-STAT /*.99U001 A001 .
+0064      (AD=MDRT HE='W36HELPR' )
+0065/
+0066/
+0067/
+0068/
+0069/
+0070/
+0071/
+0072/
+0073/
+0074/
+0075* MAP2: VALIDATION *****************************************************
+0076RULEVAR D01PERSONNEL-ID                                                     
+0077INCDIR EMPLOYEES                        PERSONNEL-ID                    ;
+0078RULEVAR D01FIRST-NAME                                                       
+0079INCDIR EMPLOYEES                        FIRST-NAME                      ;
+0080RULEVAR D01NAME                                                             
+0081INCDIR EMPLOYEES                        NAME                            ;
+0082RULEVAR D01ADDRESS-LINE                                                     
+0083INCDIR EMPLOYEES                        ADDRESS-LINE                    ;
+0084RULEVAR D01CITY                                                             
+0085INCDIR EMPLOYEES                        CITY                            ;
+0086RULEVAR D01POST-CODE                                                        
+0087INCDIR EMPLOYEES                        POST-CODE                       ;
+0088RULEVAR D01COUNTRY                                                          
+0089INCDIR EMPLOYEES                        COUNTRY                         ;
+0090RULEVAR D01MAR-STAT                                                         
+0091INCDIR EMPLOYEES                        MAR-STAT                        ;
+0092* MAP2: END OF MAP *****************************************************
+0093END

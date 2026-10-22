@@ -1,0 +1,28 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003FORMAT PS=010 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0004SET CONTROL 'WC013L084B00/000F'
+0005* MAP2: MAP PROFILES *****************************        200***********
+0006* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(   01001               *
+0007* 010079        N0NNUCN             X ^      01 SYSPROF NRH            *
+0008************************************************************************
+0009INPUT          (     IP=OFF                                           /*
+0010                                                                       )
+0011/
+0012/
+0013 023T 'HELP '(U)
+0014/
+0015/
+0016/
+0017 003T 'This function requires you to enter the info in the map fiel'-
+0018      'ds.         '
+0019/
+0020 003T 'The info will be validated, and all info is correct then the'-
+0021      ' info will be '
+0022/
+0023 003T 'displayed again.                            '
+0024/
+0025/
+0026* MAP2: VALIDATION *****************************************************
+0027* MAP2: END OF MAP *****************************************************
+0028END

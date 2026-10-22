@@ -1,0 +1,45 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #SELECT(*)
+0004DEFINE DATA PARAMETER
+00051 #SELECT (A001/00001:00004)
+0006END-DEFINE
+0007FORMAT PS=015 LS=041 ZP=OFF SG=OFF KD=OFF IP=OFF
+0008* MAP2: MAP PROFILES *****************************        200***********
+0009* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(   00000               *
+0010* 015040        N0NNUCN             X ^      01 SYSPROF NRH            *
+0011************************************************************************
+0012INPUT          (     IP=OFF                                           /*
+0013                                                                       )
+0014/
+0015 008T 'Enter your marital status     '
+0016/
+0017/
+0018 001T 'SELECT CODE'
+0019/
+0020/
+0021 002T #SELECT (1) /*.99U001 A001 .
+0022      (AD=ADT DL=001 )
+0023   /**A1000040000100001000010000100001100004001001000001000HV
+0024 007T 'W- WIDOWED       '
+0025/
+0026 002T #SELECT (2) /*.99U001 A001 .
+0027      (AD=ADT DL=001 )
+0028 007T 'S- SINGLE        '
+0029/
+0030 002T #SELECT (3) /*.99U001 A001 .
+0031      (AD=ADT DL=001 )
+0032 007T 'D- DIVORCED      '
+0033/
+0034 002T #SELECT (4) /*.99U001 A001 .
+0035      (AD=ADT DL=001 )
+0036 007T 'M- MARIIED       '
+0037/
+0038/
+0039/
+0040/
+0041/
+0042/
+0043* MAP2: VALIDATION *****************************************************
+0044* MAP2: END OF MAP *****************************************************
+0045END

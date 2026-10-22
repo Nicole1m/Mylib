@@ -1,0 +1,30 @@
+0001/** New Program TESTING.
+0002/**
+0003/** :author msh
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL                            /* program NCINPNEP
+00061 #YACHT
+0007  2 #YACHT-ID   (N8.0) INIT <12345678>
+0008  2 #YACHT-NAME (A30)
+0009  2 #YACHT-TYPE (A30)
+0010  2 #LENGTH     (P3.2) INIT <10.5>
+0011  2 #WIDTH      (P3.2) INIT <3.5>
+0012
+00131 #MESSAGE (A50) INIT <'Please enter yacht data'>
+0014END-DEFINE
+0015*
+0016INPUT
+0017  'With NO ERASE this text will stay '
+0018/ 'please ENTER'
+0019
+0020INPUT NO ERASE
+0021    WITH TEXT #MESSAGE
+0022    MARK *#YACHT-NAME
+0023    ALARM //
+0024  05/10 'Yacht-Id    :' #YACHT-ID
+0025  /10T  'Yacht-Name  :' #YACHT-NAME
+0026  /10T  'Yacht-Type  :' #YACHT-TYPE
+0027  /10T  'Length      :' #LENGTH
+0028  /10T  'Width       :' #WIDTH
+0029END
+0030

@@ -1,0 +1,43 @@
+0001/** New Program TEST-R.
+0002/**
+0003/** :author msh
+0004/* TODO Enter your code here
+0005***************************************************************
+0006** Program displays employees information in a MAP 
+0007** Sorted by Personel-id
+0008
+0009**************************************************************
+0010DEFINE DATA LOCAL 
+0011
+00121 EMPLOYEES VIEW OF EMPLOYEES
+0013  2 PERSONNEL-ID (A8) 
+0014  2 NAME (A20)
+0015  2 ADDRESS-LINE (A20/1:2)
+0016  2 CITY (A20)
+0017  2 COUNTRY (A3)
+0018
+00191 #PROGRAM (A8)
+0020 
+0021 
+0022END-DEFINE
+0023
+0024SET KEY  
+0025PF3 NAMED 'EXIT'
+0026 
+0027*
+0028MOVE *PROGRAM TO #PROGRAM
+0029*
+0030
+0031READ EMPLOYEES BY PERSONNEL-ID
+0032
+0033*
+0034INPUT USING MAP "TESTMAP" /*uses employees ddm fields to display
+0035
+0036IF *PF-KEY = 'PF3 ' /*pf3 to exit
+0037  ESCAPE BOTTOM
+0038END-IF
+0039*
+0040
+0041END-READ
+0042
+0043END

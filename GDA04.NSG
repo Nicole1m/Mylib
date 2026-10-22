@@ -1,0 +1,7 @@
+0001DEFINE DATA GLOBAL
+0002/** New Global Data Area GDA04.
+0003/**
+0004/** :author msh
+0005/* TODO Enter your data definitions here
+00061 #GLOB-FLD (A10)
+0007END-DEFINE

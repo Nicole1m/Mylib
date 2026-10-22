@@ -1,0 +1,84 @@
+0001* MAP2: PROTOTYPE VERSION 820 --- CREATED BY ONE 9.3.1 ---
+0002* INPUT USING MAP 'XXXXXXXX'
+0003*     #PROGRAM EMPLOYEES.ADDRESS-LINE(*) EMPLOYEES.CITY EMPLOYEES.COUNTRY
+0004*     EMPLOYEES.NAME EMPLOYEES.PERSONNEL-ID
+0005DEFINE DATA PARAMETER
+00061 #PROGRAM (A008)
+00071 EMPLOYEES.ADDRESS-LINE (A020/00001:00002)
+00081 EMPLOYEES.CITY (A020)
+00091 EMPLOYEES.COUNTRY (A003)
+00101 EMPLOYEES.NAME (A020)
+00111 EMPLOYEES.PERSONNEL-ID (A008)
+0012END-DEFINE
+0013FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+0014* MAP2: MAP PROFILES *****************************        200***********
+0015* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0016* 024079        N0NNUCN             X ^      01 SYSPROF NR             *
+0017************************************************************************
+0018INPUT          (     IP=OFF                                           /*
+0019                                                                       )
+0020/
+0021 001T *PROGRAM /*.01S008 A008 .
+0022      (AD=ODT )
+0023 028T 'READ TEST   '(U)
+0024 062T *DATX /*.01S008 D    .
+0025      (AD=ODT )
+0026/
+0027 001T #PROGRAM /*.01U008 A008 .
+0028      (AD=ODT )
+0029 025T 'EMPLOYEES DETAILS:  '(U)
+0030 062T *TIME /*.01S010 A010 .
+0031      (AD=ODT )
+0032/
+0033/
+0034/
+0035/
+0036/
+0037/
+0038 003T 'PERSON-ID:   '
+0039 021T EMPLOYEES.PERSONNEL-ID /*.01D008 A008 .
+0040      (AD=ODLT )
+0041/
+0042/
+0043 003T 'NAME:    '
+0044 021T EMPLOYEES.NAME /*.01D020 A020 .
+0045      (AD=ODLT )
+0046/
+0047/
+0048 003T 'ADDRESS:    '
+0049 021T EMPLOYEES.ADDRESS-LINE (1) /*.01D020 A020 .
+0050      (AD=ODLT )
+0051   /**A1000020000100001000010000100001100002001001000001000HV
+0052/
+0053 021T EMPLOYEES.ADDRESS-LINE (2) /*.01D020 A020 .
+0054      (AD=ODLT )
+0055/
+0056/
+0057 003T 'CITY:     '
+0058 021T EMPLOYEES.CITY /*.01D020 A020 .
+0059      (AD=ODLT )
+0060/
+0061/
+0062 003T 'COUNTRY:  '
+0063 021T EMPLOYEES.COUNTRY /*.01D003 A003 .
+0064      (AD=ODLT )
+0065/
+0066/
+0067/
+0068/
+0069 002T 'Press ''Enter'' for Next              '(C)
+0070/
+0071/
+0072* MAP2: VALIDATION *****************************************************
+0073RULEVAR D01EMPLOYEES.PERSONNEL-ID                                           
+0074* CDIR EMPLOYEES                        PERSONNEL-ID                    ;
+0075RULEVAR D01EMPLOYEES.NAME                                                   
+0076* CDIR EMPLOYEES                        NAME                            ;
+0077RULEVAR D01EMPLOYEES.ADDRESS-LINE                                           
+0078* CDIR EMPLOYEES                        ADDRESS-LINE                    ;
+0079RULEVAR D01EMPLOYEES.CITY                                                   
+0080* CDIR EMPLOYEES                        CITY                            ;
+0081RULEVAR D01EMPLOYEES.COUNTRY                                                
+0082* CDIR EMPLOYEES                        COUNTRY                         ;
+0083* MAP2: END OF MAP *****************************************************
+0084END

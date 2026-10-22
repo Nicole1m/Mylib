@@ -1,0 +1,37 @@
+0001/** New Program COND1PGM.
+0002/**
+0003/** :author msh
+0004/* TODO Enter your code here
+0005DEFINE DATA LOCAL 
+00061 NUMVALUE (N5)
+00071 MESSAGE ( A100) 
+0008END-DEFINE
+0009*
+0010SET CONTROL 'MT'
+0011*
+0012INPUT 'Enter a number between 1 to 20 '/
+0013'Or enter 99 to exit'/
+0014 NUMVALUE (AD=M)
+0015 
+0016
+0017DECIDE FOR FIRST CONDITION
+0018  WHEN NUMVALUE  = 99
+0019    STOP
+0020
+0021  WHEN NUMVALUE = 1 THRU 3
+0022    MESSAGE := 'value is 1,2 or 3'
+0023
+0024
+0025  WHEN NUMVALUE = 7 OR =8 OR =10
+0026    MESSAGE := 'value is 7,8,10'
+0027
+0028  WHEN NUMVALUE = 13 OR =15 THRU 18
+0029    MESSAGE := ' value is 13 , or is in the range of 15 to 18'
+0030
+0031  WHEN NONE
+0032    MESSAGE := ' invalid value,  Please re-enter a number between 1 and 18 and not 4,6,9,14'
+0033
+0034END-DECIDE
+0035REINPUT MESSAGE
+0036
+0037END
