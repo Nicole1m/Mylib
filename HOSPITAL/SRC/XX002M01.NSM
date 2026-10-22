@@ -1,0 +1,62 @@
+0010* MAP2: PROTOTYPE              --- CREATED BY WNT 2.2.0 ---
+0020* INPUT USING MAP 'XXXXXXXX'
+0030*     #M-MESSAGE #M-OPTION
+0040DEFINE DATA PARAMETER
+00501 #M-MESSAGE (A070)
+00601 #M-OPTION (A001)
+0070END-DEFINE
+0080FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+0090* MAP2: MAP PROFILES *****************************        200***********
+0100* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0110* 024080        N0NNUCN             X        01 SYSDBA  NR             *
+0120************************************************************************
+0130INPUT          (     IP=OFF                                           /*
+0140                                                                       )
+0150 002T *PROGRAM  (AD=DLOFHT' ' ) /*.01S008 A008 .
+0160 027T 'Patient Administration Menu'
+0170 072T *DATI  (AD=DLOFHT' ' ) /*.01S008 A008 .
+0180/
+0190 002T *USER  (AD=DLOFHT' ' ) /*.01S008 A008 .
+0200 027T '*' (027)
+0210/
+0220/
+0230 023T 'Option'
+0240 035T 'Option Description'
+0250/
+0260 023T '======'
+0270 035T '=' (028)
+0280/
+0290 026T 'A'
+0300 035T 'Add New Patient'
+0310/
+0320 026T 'M'
+0330 035T 'Modify Existing Patient'
+0340/
+0350 026T 'D'
+0360 035T 'Delete a Patient'
+0370/
+0380 023T '------'
+0390 035T '-' (028)
+0400/
+0410 026T #M-OPTION  (AD=DLMFHT' ' ) /*.99U001 A001 .
+0420 035T 'Please Enter Required Option'
+0430/
+0440/
+0450/
+0460/
+0470/
+0480/
+0490/
+0500/
+0510/
+0520 004T 'PF3/15 to Return'
+0530 059T 'PF12/24 to Exit'
+0540/
+0550 004T #M-MESSAGE  (AD=DLOFHT ) /*.01U070 A070 .
+0560/
+0570/
+0580/
+0590/
+0600* MAP2: VALIDATION *****************************************************
+0610* MAP2: END OF MAP *****************************************************
+0620END

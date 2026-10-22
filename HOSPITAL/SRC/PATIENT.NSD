@@ -1,0 +1,29 @@
+0001DB: 00177 FILE: 00047  - PATIENT                          DEFAULT SEQUENCE:
+0002
+0003T L DB Name                              F Leng  S D Remark
+0004- - -- --------------------------------  - ----  - - ------------------------
+0005  1 AA PATIENT-ID                        N  7.0    D
+0006*
+0007  1 AB FIRST-NAME                        A   20
+0008  1 AC SURNAME                           A   20
+0009  1 AO NUMBER-OF-DAYS                    N  4.0
+0010  1 AD DOB                               N  6.0
+0011M 1 AE ADDRESS                           A   30
+0012  1 AF ARRIVED                           A   20
+0013  1 AG DUE-FOR-SURGERY                   A    6
+0014  1 AH RELEASED                          D    6
+0015G 1 AI CONTROL-DETAILS                        0
+0016  2 AJ DATE-ADDED                        N  6.0
+0017  2 AK DATE-AMENDED                      N  6.0
+0018  2 AL OPID-ADDED                        A    8
+0019  2 AM OPID-AMENDED                      A    8
+0020  2 AN NEXT-ID-FOR-YEAR                  N  5.0
+0021  1 S1 S1-PDFS-SURNAME                   A   26    S
+0022*      -------- SOURCE FIELD(S) -------
+0023*      DUE-FOR-SURGERY(1-6)
+0024*      SURNAME(1-20)
+0025  1 AP S2-SURNAME-PATIENT-ID             A   27    S
+0026*      -------- SOURCE FIELD(S) -------
+0027*      SURNAME(1-20)
+0028*      PATIENT-ID(1-7)
+0029*      ****DDM OUTPUT TERMINATED******

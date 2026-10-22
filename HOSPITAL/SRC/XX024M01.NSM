@@ -1,0 +1,63 @@
+0010* MAP2: PROTOTYPE              --- CREATED BY WNT 2.2.0 ---
+0020* INPUT USING MAP 'XXXXXXXX'
+0030*     #G-MESSAGE #M-OPTION #M-YEAR
+0040DEFINE DATA PARAMETER
+00501 #G-MESSAGE (A070)
+00601 #M-OPTION (A001)
+00701 #M-YEAR (N02.0)
+0080END-DEFINE
+0090FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+0100* MAP2: MAP PROFILES *****************************        200***********
+0110* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+0120* 024080        N0NNUCN             X        01 SYSDBA  NR             *
+0130************************************************************************
+0140INPUT          (     IP=OFF                                           /*
+0150                                                                       )
+0160 002T *PROGRAM  (AD=DLOFHT' ' ) /*.01S008 A008 .
+0170 028T 'Listing of Patients Menu'
+0180 072T *DATN  (AD=DLOFHT' ' ) /*.01S008 N08.0.
+0190/
+0200 002T *USER  (AD=DLOFHT' ' ) /*.01S008 A008 .
+0210 028T '*' (024)
+0220/
+0230/
+0240/
+0250 016T 'Option'
+0260 028T 'Option Description'
+0270/
+0280 016T '======'
+0290 028T '=' (035)
+0300/
+0310 018T 'P'
+0320 028T 'List in Patient Id Order'
+0330/
+0340 018T 'N'
+0350 028T 'List in Surname/Patient Id Order'
+0360/
+0370 016T '------'
+0380 028T '-' (036)
+0390/
+0400 018T #M-OPTION  (AD=DLMFHT' ' ) /*.99U001 A001 .
+0410 028T 'Please Enter Required Option'
+0420/
+0430/
+0440/
+0450 018T #M-YEAR  (AD=DLMFHT' ' ) /*.99U002 N02.0.
+0460 028T 'Year'
+0470/
+0480/
+0490/
+0500/
+0510/
+0520/
+0530 004T 'PF3/15 to Return'
+0540 059T 'PF12/24 to Exit'
+0550/
+0560 004T #G-MESSAGE  (AD=DLOFHT ) /*.01D070 A070 .
+0570/
+0580/
+0590/
+0600/
+0610* MAP2: VALIDATION *****************************************************
+0620* MAP2: END OF MAP *****************************************************
+0630END
